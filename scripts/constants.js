@@ -11,7 +11,6 @@ export const ACTION_TYPE = {
   attack: "tokenActionHud.palladium.attack",
   maneuver: "tokenActionHud.palladium.maneuver",
   combat: "tokenActionHud.palladium.combatRoll",
-  attribute: "tokenActionHud.palladium.attribute",
   save: "tokenActionHud.palladium.save",
   skill: "tokenActionHud.palladium.skill",
   spell: "tokenActionHud.palladium.spell",
@@ -29,7 +28,6 @@ export const GROUP = {
   weapons: { id: "weapons", name: "tokenActionHud.palladium.weapons", type: "system" },
   maneuvers: { id: "maneuvers", name: "tokenActionHud.palladium.maneuvers", type: "system" },
   combatRolls: { id: "combatRolls", name: "tokenActionHud.palladium.combatRolls", type: "system" },
-  attributes: { id: "attributes", name: "tokenActionHud.palladium.attributes", type: "system" },
   saves: { id: "saves", name: "tokenActionHud.palladium.saves", type: "system" },
   skills: { id: "skills", name: "tokenActionHud.palladium.skills", type: "system" },
   spells: { id: "spells", name: "tokenActionHud.palladium.spells", type: "system" },
@@ -45,6 +43,3 @@ export const GROUP = {
   token: { id: "token", name: "tokenActionHud.token", type: "system" },
   utility: { id: "utility", name: "tokenActionHud.utility", type: "system" }
 };
-
-/** The eight attributes, in sheet order. */
-export const ATTRIBUTES = { iq: "I.Q.", me: "M.E.", ma: "M.A.", ps: "P.S.", pp: "P.P.", pe: "P.E.", pb: "P.B.", spd: "Spd" };

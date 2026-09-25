@@ -15,7 +15,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
     layout: [
       tab("attack", "tokenActionHud.palladium.tabs.attack", ["weapons", "maneuvers"]),
       tab("combat", "tokenActionHud.palladium.tabs.combat", ["combatRolls", "saves"]),
-      tab("abilities", "tokenActionHud.palladium.tabs.abilities", ["attributes", "skills"]),
+      tab("abilities", "tokenActionHud.palladium.tabs.abilities", ["skills"]),
       tab("powers", "tokenActionHud.palladium.tabs.powers", ["spells", "magicAbilities", "psionics", "abilities"]),
       tab("inventory", "tokenActionHud.palladium.tabs.inventory", ["gear", "devices"]),
       tab("vehicle", "tokenActionHud.palladium.tabs.vehicle", ["vehicle", "vehicleWeapons"]),

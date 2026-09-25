@@ -1,4 +1,4 @@
-import { ACTION_TYPE, ATTRIBUTES, GROUP } from "./constants.js";
+import { ACTION_TYPE, GROUP } from "./constants.js";
 import { getSetting } from "./settings.js";
 
 export let ActionHandler = null;
@@ -37,7 +37,6 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
       this.#buildManeuvers(actor);
       this.#buildCombatRolls(actor);
       this.#buildSaves(actor);
-      this.#buildAttributes(actor);
       this.#buildSkills(actor);
       this.#buildPowers(actor);
       this.#buildInventory(actor);
@@ -46,12 +45,11 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
       this.#buildUtility(actor);
     }
 
-    /** Several characters / NPCs selected: combat rolls, saves and attributes roll for each of them. */
+    /** Several characters / NPCs selected: combat rolls and saves roll for each of them. */
     #buildMultiple(actors) {
       const first = actors[0];
       this.#buildCombatRolls(first, true);
       this.#buildSaves(first, true);
-      this.#buildAttributes(first, true);
     }
 
     /* -------------------------------------------- */
@@ -105,14 +103,6 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
         group || !totals[key] ? {} : { info1: { text: signed(totals[key].bonus ?? 0) } }));
       actions.push(this.#action("save", ["horror"], "Save vs Horror Factor"));
       this.addActions(actions, { id: GROUP.saves.id, type: "system" });
-    }
-
-    /** The eight attributes: clicking prints the score to chat (attributes aren't rolled in play). */
-    #buildAttributes(actor, group = false) {
-      const attrs = actor.system.attributes ?? {};
-      const actions = Object.entries(ATTRIBUTES).map(([key, label]) => this.#action("attribute", [key], label,
-        group ? {} : { info1: { text: String(attrs[key]?.total ?? "—") } }));
-      this.addActions(actions, { id: GROUP.attributes.id, type: "system" });
     }
 
     /** Skills with their percentage (and the second percentage when the skill has one). */

@@ -12,7 +12,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
       const itemId = ITEM_TYPES.has(type) ? parts[0] : (type === "vehicle" && parts[0] === "weapon" ? parts[1] : null);
       if ( itemId && this.isRenderItem() ) return this.renderItem(this.actor, itemId);
 
-      // Several tokens selected: roll for each (combat rolls, saves, attributes).
+      // Several tokens selected: roll for each (combat rolls, saves).
       const actors = this.actor ? [this.actor] : (this.actors ?? []);
       for ( const actor of actors ) {
         if ( !actor ) continue;
@@ -36,7 +36,6 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
           if ( parts[0] === "coma" ) return api.rollSaveVsComa(actor);
           if ( parts[0] === "horror" ) return api.rollHorrorFactor(actor);
           return api.rollSave(actor, parts[0]);
-        case "attribute": return api.printAttribute(actor, parts[0]);
         case "skill": {
           const skill = item(parts[0]);
           return skill && api.rollSkill(actor, skill, parts[1] === "2");

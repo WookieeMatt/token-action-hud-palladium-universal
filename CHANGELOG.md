@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.2
+- Attributes removed from the HUD (they aren't rolled in play); the tab is now just **Skills**.
+
 ## 0.1.1
 - Works with Token Action HUD Core 2.1.1 (and any later 2.1.x): the dependency no longer caps Core at 2.1.0.
 
