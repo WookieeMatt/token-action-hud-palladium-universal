@@ -1,5 +1,6 @@
 {
   "tokenActionHud.palladium.attack": "Attack",
+  "tokenActionHud.palladium.reload": "Reload",
   "tokenActionHud.palladium.maneuver": "Maneuver",
   "tokenActionHud.palladium.combatRoll": "Combat Roll",
   "tokenActionHud.palladium.save": "Save",

@@ -9,6 +9,7 @@ export const REQUIRED_CORE_MODULE_VERSION = "2.1";
 /** Action types: the first part of each action's encoded value. */
 export const ACTION_TYPE = {
   attack: "tokenActionHud.palladium.attack",
+  reload: "tokenActionHud.palladium.reload",
   maneuver: "tokenActionHud.palladium.maneuver",
   combat: "tokenActionHud.palladium.combatRoll",
   save: "tokenActionHud.palladium.save",

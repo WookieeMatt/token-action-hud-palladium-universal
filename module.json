@@ -2,11 +2,11 @@
   "id": "token-action-hud-palladium-universal",
   "title": "Token Action HUD Palladium Universal",
   "description": "Token Action HUD for the Palladium Universal system (TMNT & Other Strangeness): attacks and maneuvers, combat rolls, saves, skills, powers, items, conditions and utilities from a HUD next to the selected token.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "authors": [{ "name": "WookieeMatt", "url": "https://github.com/WookieeMatt" }],
   "url": "https://github.com/WookieeMatt/token-action-hud-palladium-universal",
   "manifest": "https://github.com/WookieeMatt/token-action-hud-palladium-universal/releases/latest/download/module.json",
-  "download": "https://github.com/WookieeMatt/token-action-hud-palladium-universal/releases/download/v0.1.2/module.zip",
+  "download": "https://github.com/WookieeMatt/token-action-hud-palladium-universal/releases/download/v0.1.3/module.zip",
   "readme": "https://github.com/WookieeMatt/token-action-hud-palladium-universal#readme",
   "bugs": "https://github.com/WookieeMatt/token-action-hud-palladium-universal/issues",
   "license": "LICENSE",
@@ -16,7 +16,7 @@
   "languages": [{ "lang": "en", "name": "English", "path": "languages/en.json" }],
   "relationships": {
     "systems": [
-      { "id": "palladium-universal", "type": "system", "compatibility": { "minimum": "1.28.0" } }
+      { "id": "palladium-universal", "type": "system", "compatibility": { "minimum": "1.34.0" } }
     ],
     "requires": [
       { "id": "token-action-hud-core", "type": "module", "compatibility": { "minimum": "2.1.0", "verified": "2.1.1" } }

@@ -633,3 +633,5 @@
 #token-action-hud-app.tah-style-palladium #context-menu li.context-item.tah-context-delete {
   color: var(--color-warm-2, #c9593f);
 }
+/* Out of ammo / none left (0.1.3) */
+.tah-style-palladium .tah-pu-empty { color: #d9534f !important; font-weight: bold; }

@@ -70,11 +70,18 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
       const weapons = this.#items("weapon", w => this.displayUnequipped || (w.system.equipped !== false));
       const actions = [];
       for ( const weapon of weapons ) {
+        const w = weapon.system;
         const modes = this.api.attackModes?.(actor, weapon) ?? [{ key: "aimed", label: "Attack", bonus: 0 }];
+        // Ammo left (guns, bows) or how many are left (thrown weapons, grenades): system 1.34+.
+        const left = w.tracksAmmo ? { text: `${w.ammo.value}/${w.ammo.max}`, title: "Ammo left", class: w.ammo.value ? "" : "tah-pu-empty" }
+          : w.tracksQuantity ? { text: `×${w.quantity ?? 0}`, title: "Left", class: w.quantity ? "" : "tah-pu-empty" } : undefined;
         modes.forEach((m, i) => actions.push(this.#action("attack", [weapon.id, m.key], i ? `${weapon.name}: ${m.label}` : weapon.name, {
           img: coreModule.api.Utils.getImage(weapon), info1: { text: signed(m.bonus), title: "Strike bonus" },
-          info2: { text: weapon.system.damage ?? "", title: "Damage" }, tooltip: `${m.label}: Strike ${signed(m.bonus)}, damage ${weapon.system.damage ?? "—"}. Right-click: open the weapon.`
+          info2: { text: w.damage ?? "", title: "Damage" }, info3: left,
+          tooltip: `${m.label}: Strike ${signed(m.bonus)}, damage ${w.damage ?? "—"}${left ? `, ${left.title.toLowerCase()} ${left.text}` : ""}. Right-click: open the weapon.`
         })));
+        if ( w.tracksAmmo && (w.ammo.value < w.ammo.max) ) actions.push(this.#action("reload", [weapon.id], `Reload ${weapon.name}`, {
+          img: coreModule.api.Utils.getImage(weapon), tooltip: `Back to ${w.ammo.max}${w.reload ? ` (takes ${w.reload})` : ""}` }));
       }
       this.addActions(actions, { id: GROUP.weapons.id, type: "system" });
     }

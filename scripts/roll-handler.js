@@ -1,7 +1,7 @@
 export let RollHandler = null;
 
 /** Item-based action types: right-click opens the item instead. */
-const ITEM_TYPES = new Set(["attack", "skill", "spell", "psionic", "itemRoll", "device"]);
+const ITEM_TYPES = new Set(["attack", "reload", "skill", "spell", "psionic", "itemRoll", "device"]);
 
 Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
   /** Runs the Palladium Universal actions through the system's own API (game.palladium). */
@@ -30,6 +30,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
           const weapon = item(parts[0]);
           return weapon && api.rollAttack(actor, weapon, parts[1] || "aimed");
         }
+        case "reload": { const w = item(parts[0]); return w && api.reloadWeapon?.(w); }
         case "maneuver": return api.rollManeuver(actor, parts[0]);
         case "combat": return api.rollCombat(actor, parts[0]);
         case "save":

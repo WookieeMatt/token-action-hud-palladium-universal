@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.3
+- Weapons show the ammo left (guns, bows) or how many are left (thrown weapons, grenades), red when empty; a **Reload** entry for weapons that aren't full. Needs Palladium Universal 1.34.0.
+
 ## 0.1.2
 - Attributes removed from the HUD (they aren't rolled in play); the tab is now just **Skills**.
 
